@@ -3,18 +3,19 @@
 	<link rel="stylesheet" href="style.css">
 <head>
 	<title>Calendar Interface</title>
-	<style>	table {
+	<style>	
+	table {
 		border-collapse: collapse;
 		width: 100%;
 	}
 	th, td {
 		text-align: center;
 		padding: 8px;
-		border: 1px solid black;
+		border: none;
 	}
 	th {
 		background-color: pink;
-		border: none;
+		border: none;	
 	}
 	td {
 		background-color: pink;
@@ -26,14 +27,29 @@
 	}
 	.month {
 		font-size: 24px;
-		font-weight: bold;
+		font-weight: bolder;
 		margin-bottom: 16px;
 	}
 	.arrow-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 16px;
+		margin-bottom: 16px;	
+	}
+	.arrow1 {
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: rgb(245, 148, 164);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 20px;
+		font-weight: bolder;	
+	}
+	.arrow1:hover {
+		background-color: rgb(187, 15, 44);
 	}
 	.arrow {
 		cursor: pointer;
@@ -46,8 +62,8 @@
 		align-items: center;
 		font-size: 20px;
 		font-weight: bolder;
-		margin-inline: 80%;
-		
+		margin-inline: 90%;
+		margin-top: -30px;	
 	}
 	.arrow:hover {
 		background-color: rgb(187, 15, 44);
@@ -57,8 +73,8 @@
 <body>
 	<div class="top">
 	<div class="month">January 2022</div>
-	<div class="arrow" id="prevMonth">&lt;</div>
-	<div class="arrow" id="nextMonth">&gt;</div>
+	<div class="arrow1" id="prevMonth"><</div>
+	<div class="arrow" id="nextMonth">></div>
 
 	<table id="calendar">
 		<tr>
