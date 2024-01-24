@@ -1,0 +1,66 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top{
+    width:20%;
+    min-width:350px;
+    margin: auto;
+    padding:10px;
+    justify-content: center;
+    border:3px solid black;
+    border-radius: 30px;
+    background-color: pink;
+    display: flexbox;
+}
+.month{
+    font-family: monospace;
+    text-align: center;
+    font-weight: bolder;
+}
+.{
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #ddd;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+	font-weight: bolder;
+    space-between;
+	align-items: center;
+	margin-bottom: ;
+    margin-right: 15px;
+}
+
+.arrow:hover {
+	background-color: #ccc;
+}
+table{
+    border-radius: 30px;
+    background-color: pink;
+    margin: auto;
+    
+	border: none;
+    
+}
+    
+
+tr{
+    font-family: monospace;
+    border-radius: 30px;
+    border: none;
+}
+th{
+    border: none;
+    background-color: pink;
+    font-weight: bolder;
+}
+td{
+    border: none;
+    background-color: pink;
+    font-weight: bolder;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="style.css">
+<head>
+	<title>Calendar Interface</title>
+	<style>	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+	th, td {
+		text-align: center;
+		padding: 8px;
+		border: 1px solid black;
+	}
+	th {
+		background-color: #ddd;
+	}
+	td {
+		background-color: #fff;
+	}
+	.today {
+		background-color: #f00;
+		color: #fff;
+	}
+	.month {
+		font-size: 24px;
+		font-weight: bold;
+		margin-bottom: 16px;
+	}
+	.arrow-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 16px;
+	}
+	.arrow {
+		cursor: pointer;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: #ddd;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 24px;
+		font-weight: bold;
+		margin-inline: 80%;
+		
+	}
+	.arrow:hover {
+		background-color: #ccc;
+	}
+	</style>
+</head>
+<body>
+	<div class="top">
+	<div class="month">January 2022</div>
+	<div class="arrow" id="prevMonth">&lt;</div>
+	<div class="arrow" id="nextMonth">&gt;</div>
+
+	<table id="calendar">
+		<tr>
+			<th>Sun</th>
+			<th>Mon</th>
+			<th>Tue</th>
+			<th>Wed</th>
+			<th>Thu</th>
+			<th>Fri</th>
+			<th>Sat</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1</td>
+			<td>2</td>
+		</tr>
+		<!-- Rest of the calendar -->
+	</table>
+
+	<script>
+		// Get the table element and arrow elements
+		const calendarTable = document.getElementById('calendar');
+		const prevMonthArrow = document.getElementById('prevMonth');
+		const nextMonthArrow = document.getElementById('nextMonth');
+
+		// Initial month and year
+		let currentMonth = 0; // January is 0
+		let currentYear = 2022;
+
+		// Function to update the calendar
+		function updateCalendar() {
+			// Clear the table
+			while (calendarTable.rows.length > 1) {
+				calendarTable.deleteRow(1);
+			}
+
+			// Get the number of days in the current month
+			const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+			// Get the first day of the current month
+			const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+
+			// Update the month header
+			const monthHeader = document.querySelector('.month');
+			monthHeader.textContent = new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long', year: 'numeric' });
+
+			// Create the calendar rows and cells
+			let row = calendarTable.insertRow(-1);
+			let dayCount = 1;
+			for (let i = 0; i < 6; i++) {
+				for (let j = 0; j < 7; j++) {
+					if (i === 0 && j < firstDay) {
+						row.insertCell(-1);
+					} else if (dayCount <= daysInMonth) {
+						let cell = row.insertCell(-1);
+						cell.textContent = dayCount;
+						dayCount++;
+					}
+				}
+				row = calendarTable.insertRow(-1);
+			}
+		}
+
+		// Add event listeners to the arrow elements
+		prevMonthArrow.addEventListener('click', function() {
+			currentMonth--;
+			if (currentMonth < 0) {
+				currentMonth = 11;
+				currentYear--;
+			}
+			updateCalendar();
+		});
+
+		nextMonthArrow.addEventListener('click', function() {
+			currentMonth++;
+			if (currentMonth > 11) {
+				currentMonth = 0;
+				currentYear++;
+			}
+			updateCalendar();
+		});
+
+		// Initial calendar update
+		updateCalendar();
+	</script>
+	
+</body>
+</html>
