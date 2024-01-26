@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<link rel="stylesheet" href="style.css">
+	
+
+	<link rel="stylesheet" href="https://fontawesome.com/icons/circle-chevron-right?f=classic&s=solid">
 <head>
 	<title>Calendar Interface</title>
 	<style>	
@@ -73,7 +76,7 @@
 <body>
 	<div class="top">
 	<div class="month">January 2022</div>
-	<div class="arrow1" id="prevMonth"><</div>
+	<div class="arrow1" id="prevMonth"><i class="fa-solid fa-circle-chevron-right"></i></div>
 	<div class="arrow" id="nextMonth">></div>
 
 	<table id="calendar">
@@ -106,7 +109,7 @@
 
 		// Initial month and year
 		let currentMonth = 0; // January is 0
-		let currentYear = 2022;
+		let currentYear = 2024;
 
 		// Function to update the calendar
 		function updateCalendar() {
